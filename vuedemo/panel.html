@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="app">
+    <child type="primary" @say-title="parent">
+        <div slot="title"> this is header</div>
+        <div slot="content">
+            <div>今天学习了slot component </div>
+        </div>
+        <!--<div>作者：邵俊豪</div>-->
+    </child>
+</div>
+<template id="child">
+    <div class="panel" :class="[color]">
+        <div class="panel-heading" ref="head">
+            <slot name="title"></slot>
+        </div>
+        <div class="panel-body">
+            <slot name="content"></slot>
+        </div>
+        <div>
+            <slot>
+                <div>匿名 <button @click="say" class="btn btn-xs">点我说标题</button></div>
+            </slot>
+        </div>
+    </div>
+</template>
+<script src="node_modules/vue/dist/vue.min.js"></script>
+<script>
+    let child={
+        template:'#child',
+        props:['type'],
+        computed:{
+            color(){return 'panel-'+this.type}
+        },
+        methods:{
+            say(){
+                this.$emit('say-title',this.$refs.head.innerText)
+            }
+        }
+    }
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "你好，世界！"
+        },
+        components:{child},
+        methods:{
+            parent(data){
+                alert(data)
+            }
+        }
+    })
+</script>
+</body>
+</html>

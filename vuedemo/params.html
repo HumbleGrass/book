@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <router-link :to="{name:'article',params:{id:1}}">to article1</router-link>
+    <router-link :to="{name:'article',params:{id:2}}">to article2</router-link>
+    <router-link :to="{name:'article',params:{id:3}}">to article3</router-link>
+    <router-view></router-view>
+</div>
+<script src="node_modules/vue/dist/vue.min.js"></script>
+<script src="node_modules/vue-router/dist/vue-router.js"></script>
+<script>
+    let article={
+        template:`<div>第{{$route.params.id}}篇文章</div>`,
+        data(){
+            return {msg:{}}
+        },
+        watch:{
+            '$route.params':{
+                handler(val){console.log(val)},
+                deep:true
+            }
+        }
+    };
+    let routes=[
+        {path:'/article/:id',name:'article',component:article}
+    ];
+    let router=new VueRouter({
+        routes
+    });
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "你好，世界！"
+        },
+        router
+    })
+</script>
+</body>
+</html>

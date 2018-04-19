@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <p>{{message}}</p>
+    <brother></brother>
+    <sister></sister>
+</div>
+<script src="node_modules/vue/dist/vue.min.js"></script>
+<script>
+    let brother={
+        template:`<div>{{color}} <button>变绿</button></div>`,
+        data(){return {color:'绿色',old:'绿色'}},
+        created(){
+            newBus.$on('changesester',val=>this.color=val)
+        }
+    };
+    let sister={
+        template:`<div>{{color}} <button @click="change">红色</button></div>`,
+        data(){return {color:'红色',old:'红色'}},
+        methods:{
+            change(){
+                newBus.$emit('changesester',this.old)
+            }
+        }
+    };
+    let newBus=new Vue;
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "你好，世界！"
+        },
+        components:{brother,sister}
+    })
+</script>
+</body>
+</html>

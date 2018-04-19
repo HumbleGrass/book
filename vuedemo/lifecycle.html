@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <p>{{message}}</p>
+</div>
+<script src="node_modules/vue/dist/vue.min.js"></script>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "你好，世界！"
+        },
+        created(){},//初始化数据
+        mounted(){},//操作dom
+    })
+</script>
+</body>
+</html>

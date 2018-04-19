@@ -1,0 +1,16 @@
+/**
+ * Swiper图片
+ *
+ * @url /swiper-api
+ */
+ {
+  "code": 2,
+  "result": [
+    'https://m.360buyimg.com/babel/jfs/t16897/56/1273646225/64566/4fc91beb/5ac4bb51Nac965384.jpg',
+    'https://img1.360buyimg.com/da/jfs/t16927/87/1276406135/93956/5c26e4ba/5ac3494aNa4f76b1f.jpg',
+    'https://img1.360buyimg.com/da/jfs/t17401/127/1262904573/102239/435138ef/5ac42ab8N9fd4610d.jpg',
+    'https://m.360buyimg.com/babel/jfs/t17095/269/1212987207/93070/e72eea15/5ac1a5f4N09dc2b30.jpg',
+    'https://img1.360buyimg.com/pop/jfs/t18457/176/1432692091/102706/1e89eac1/5ac9eb26Nf8b2a5cf.jpg',
+    'https://m.360buyimg.com/babel/jfs/t17608/261/1315979652/83285/8003d047/5ac48687N919c9ca6.jpg'
+  ]
+}

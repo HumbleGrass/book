@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="app">
+    <p>{{message}}</p>
+    <child title="shaojunhao"></child>
+</div>
+<template id="mymodel">
+    <div>this is child {{title}}</div>
+</template>
+<script src="node_modules/vue/dist/vue.min.js"></script>
+<script>
+    let child={
+        template:'#mymodel',
+        props:['title']
+    }
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            message: "你好，世界！"
+        },
+        components:{child}
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+[
+  {"isSelect":true,
+    "productCover": "https://img13.360buyimg.com/n1/s155x155_jfs/t4795/104/1174273746/445448/e6b2d0dd/58edf854N59599c8a.jpg",
+    "productName":"深入浅出node.js",
+    "productInfo":"颜色：node.js学习",
+    "productPrice":57.8,"productCount":3
+  },
+  {"isSelect":false,
+    "productCover":"https://img13.360buyimg.com/n1/s155x155_jfs/t19195/147/355450051/234942/e559cd19/5a6e9565N692fd17b.jpg",
+    "productName":"深入浅出node.js",
+    "productInfo":"颜色：node.js学习",
+    "productPrice":57.8,
+    "productCount":3}
+]

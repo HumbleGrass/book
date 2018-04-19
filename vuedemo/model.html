@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        h6{margin: 20px;padding: 0}
+        .model{
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.35);
+        }
+        .close{
+            position: fixed;
+            top:50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+            width: 200px;
+            height: 100px;
+            background-color: white;
+            text-align: center;
+        }
+        .btn{
+            position: absolute;
+            top: 2px;
+            right: 2px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="isshow=!isshow">弹出</button>
+    <mymodel @childdata="data=>isshow=data" :title="isshow"></mymodel>
+</div>
+<template id="model" >
+    <div class="model" v-show="title">
+        <div class="close">
+            <h6>是否删除</h6>
+            <div>
+                <button>是</button>
+                <button @click="modelclose">否</button>
+            </div>
+            <button class="btn" @click="modelclose">&times;</button>
+        </div>
+    </div>
+</template>
+<script src="node_modules/vue/dist/vue.min.js"></script>
+<script>
+    let mymodel={
+        template:"#model",
+        props:['title'],
+        methods:{
+            modelclose(){
+                this.$emit('childdata',false)
+            }
+        }
+    };
+    let vm = new Vue({
+        el: "#app",
+        data(){return {isshow:false}},
+        components:{mymodel},
+    })
+</script>
+</body>
+</html>
